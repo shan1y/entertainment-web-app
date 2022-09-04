@@ -1,11 +1,9 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 
 function App() {
 
-const sum = (a:number,b:number)=>{
- return a+b 
-  }
+
 
   return (
     <div className="App">
