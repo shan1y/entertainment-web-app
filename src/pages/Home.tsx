@@ -1,9 +1,8 @@
-import React from 'react'
+import React from "react";
+import HomeSections from "../components/HomeSections/HomeSections";
 
 function Home() {
-  return (
-    <div>Home</div>
-  )
+  return <HomeSections />;
 }
 
-export default Home
+export default Home;
