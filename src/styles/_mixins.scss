@@ -1,3 +1,20 @@
+$tablet-breakpoint: 768px;
+$desktop-breakpoint: 1280px;
+
+$mobile-left-margin: 1rem;
+
 @mixin mobile-left-margin {
-  margin-left: 1rem;
+  margin-left: $mobile-left-margin;
+}
+
+@mixin tablet {
+  @media (min-width: $tablet-breakpoint) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: $desktop-breakpoint) {
+    @content;
+  }
 }

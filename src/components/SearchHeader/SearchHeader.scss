@@ -4,6 +4,7 @@
 
 .search {
   display: flex;
+  margin: 1rem 0;
   @include mobile-left-margin;
   align-items: center;
 

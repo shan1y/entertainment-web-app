@@ -1,6 +1,25 @@
 @use "../styles/fonts" as *;
+@use "../styles/colors" as *;
+@use "../styles/mixins" as *;
 
 h2 {
   font-weight: 300;
-  color: white;
+  font-size: 20px;
+  line-height: 25.2px;
+  @include tablet {
+    font-size: 24px;
+  }
+  @include desktop {
+    font-size: 32px;
+  }
+}
+
+h4 {
+  font-weight: 300;
+  font-size: 11px;
+}
+
+h3 {
+  font-weight: 500;
+  font-size: 14px;
 }

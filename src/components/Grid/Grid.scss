@@ -1,0 +1,38 @@
+@use "../../styles/mixins" as *;
+
+.movies {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
+  margin-right: $mobile-left-margin;
+
+  &__image {
+    width: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+}
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+
+  &__movie {
+    display: flex;
+    gap: 0.25rem;
+    align-items: center;
+  }
+
+  &--top {
+    justify-content: flex-start;
+    gap: 1rem;
+    display: flex;
+    align-items: center;
+    margin: 0.5rem 0;
+  }
+
+  &__img {
+    width: 0.6rem;
+    height: 0.6rem;
+  }
+}
