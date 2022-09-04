@@ -12,10 +12,10 @@ function Navigation() {
     <div className="nav">
         <img className='nav__logo' alt="site logo" src={logo}></img>
         <div className="nav__icon-container">
-            <img className="nav__icon" src={home} alt=""></img>
-            <img className="nav__icon" src={movies} alt=""></img>
-            <img className="nav__icon" src={tv} alt=""></img>
-            <img className="nav__icon" src={bookmark} alt=""></img>
+            <img className="nav__icon" src={home} alt="home icon"></img>
+            <img className="nav__icon" src={movies} alt="movie icon"></img>
+            <img className="nav__icon" src={tv} alt="tv icon"></img>
+            <img className="nav__icon" src={bookmark} alt="bookmark icon"></img>
         </div>
         <div className="nav__avatar">
             <img src={avatar} alt="avatar" className="nav__avatar-img" />

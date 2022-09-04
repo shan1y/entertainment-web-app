@@ -1,0 +1,24 @@
+@use "../../styles/colors" as *;
+@use "../../styles/mixins" as *;
+@use "../../styles/fonts" as *;
+
+.search {
+  display: flex;
+  @include mobile-left-margin;
+  align-items: center;
+
+  &__icon {
+    width: 1.125rem;
+    height: 1.125rem;
+    margin-right: 0.5rem;
+  }
+
+  &__field {
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 2rem;
+    border: none;
+    background-color: $home-background;
+    font-family: $font-stack;
+  }
+}
