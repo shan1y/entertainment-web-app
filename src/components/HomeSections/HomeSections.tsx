@@ -1,38 +1,42 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import "./HomeSections.scss";
-import videos from "../../assets/data/data.json";
-import beyond from "../../assets/thumbnails/beyond-earth/regular/large.jpg";
-import gear from "../../assets/thumbnails/bottom-gear/regular/large.jpg";
-import cities from "../../assets/thumbnails/undiscovered-cities/regular/large.jpg";
-import ninetees from "../../assets/thumbnails/1998/regular/large.jpg";
-import moon from "../../assets/thumbnails/dark-side-of-the-moon/regular/large.jpg";
 import Grid from "../Grid/Grid";
+import axios from "axios";
 
-interface Video {
-  title: string;
-  thumbnail: {
-    regular: {
-      small: string;
-      medium: string;
-      large: string;
-    };
-  };
-  year: number;
+let dataRow: {
   category: string;
+  isBookmarked: string;
+  isTrending: string;
   rating: string;
-  isBookmarked: boolean;
-  isTrending: boolean;
-}
-
-let thumbnails: string[] = [beyond, gear, cities, ninetees, moon];
-let trending: Video[] = [];
-videos.forEach((video) => {
-  if (video.isTrending) {
-    trending.push(video);
-  }
-});
+  thumbnail: string;
+  title: string;
+  year: number;
+};
 
 function HomeSections() {
+  const [data, setData] = useState(null);
+  const [trendingCarousel, setTrendingCarousel] = useState<string[]>([]);
+  useEffect(() => {
+    axios
+      .get("http://localhost:8080/trending")
+      .then((response) => {
+        setData(response.data);
+        return response.data;
+      })
+      .then((videoData) => {
+        let trendingVids: string[] = [];
+        videoData.forEach((row: typeof dataRow) => {
+          let parsed = JSON.parse(row.thumbnail);
+          trendingVids.push(parsed.regular.large.substring(19));
+        });
+        setTrendingCarousel(trendingVids);
+      });
+  }, []);
+
+  if (!data && trendingCarousel.length === 0) {
+    return <p>.....loading</p>;
+  }
+
   return (
     <>
       <section className="home">
@@ -40,18 +44,18 @@ function HomeSections() {
         <div className="contain">
           <div className="row">
             <div className="row__inner">
-              {trending.map((video, index) => {
+              {trendingCarousel.map((video, index) => {
                 return (
                   <div key={index} className="tile">
                     <div className="tile__media">
                       <img
                         className="tile__img"
-                        src={thumbnails[index]}
+                        src={"http://localhost:8080/movies".concat(`${video}`)}
                         alt=""
                       />
                     </div>
                     <div className="tile__details">
-                      <div className="tile__title">{video.title}</div>
+                      <div className="tile__title">{"title"}</div>
                     </div>
                   </div>
                 );
