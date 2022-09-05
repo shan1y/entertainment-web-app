@@ -22,7 +22,7 @@ const homeProperties: HomeSectionsProps = {
 };
 
 function HomeSections() {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<typeof dataRow[]>([]);
   const [trendingCarousel, setTrendingCarousel] = useState<string[]>([]);
   useEffect(() => {
     axios
@@ -41,9 +41,10 @@ function HomeSections() {
       });
   }, []);
 
-  if (!data && trendingCarousel.length === 0) {
-    return <p></p>;
+  if (data.length === 0 && trendingCarousel.length === 0) {
+    return <></>;
   }
+  console.log(data[0]);
 
   return (
     <>
@@ -55,12 +56,42 @@ function HomeSections() {
               {trendingCarousel.map((video, index) => {
                 return (
                   <div key={index} className="tile">
-                    <div className="tile__media">
+                    <div className="tile__media tile__media--trending">
                       <img
                         className="tile__img"
                         src={"http://localhost:8080/".concat(`${video}`)}
                         alt=""
                       />
+                      <div className="movies__bookmarked-circle"></div>
+                      <div
+                        className={"movies__bookmarked--".concat(
+                          `${data[index].isBookmarked}`
+                        )}
+                      ></div>
+
+                      <div className="info-container__trending">
+                        <div className="info-container--top info-container--top-trending">
+                          <h4 className="info-container__text">
+                            {data[index].year}
+                          </h4>
+                          <div className="info-container__movie">
+                            <div
+                              className={"info-container__img--".concat(
+                                data[index].category
+                              )}
+                            ></div>
+                            <h4 className="info-container__text">
+                              {data[index].category}
+                            </h4>
+                          </div>
+                          <h4 className="info-container__text">
+                            {data[index].rating}
+                          </h4>
+                        </div>
+                        <div className="info-container--bottom">
+                          <h3>The Great Lands</h3>
+                        </div>
+                      </div>
                     </div>
                     <div className="tile__details">
                       <div className="tile__title">{"title"}</div>

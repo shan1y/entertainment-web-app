@@ -7,10 +7,42 @@
   grid-gap: 1rem;
   margin-right: $mobile-left-margin;
 
+  @include tablet {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @include desktop {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
   &__image {
     width: 100%;
     object-fit: cover;
     border-radius: 4px;
+  }
+
+  &__tile {
+    position: relative;
+  }
+
+  &__bookmarked {
+    position: absolute;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 2rem;
+    width: 2rem;
+    top: 0.5rem;
+    right: 0.5rem;
+    z-index: 999;
+  }
+
+  &__bookmarked--False {
+    @extend .movies__bookmarked;
+    background-image: url("../../assets/icons/icon-bookmark-empty.svg");
+  }
+
+  &__bookmarked--True {
+    @extend .movies__bookmarked;
+    background-image: url("../../assets/icons/icon-bookmark-full.svg");
   }
 }
 
@@ -36,4 +68,15 @@
     width: 0.6rem;
     height: 0.6rem;
   }
+}
+
+.movies__bookmarked-circle {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: #151e21;
+  right: 0.5rem;
+  position: absolute;
+  opacity: 0.5;
+  top: 0.5rem;
 }

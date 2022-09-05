@@ -47,6 +47,12 @@ function Grid(props: any) {
                 className="movies__image"
                 src={"http://localhost:8080/".concat(`${grid[index]}`)}
               ></img>
+              <div className="movies__bookmarked-circle"></div>
+              <div
+                className={"movies__bookmarked--".concat(
+                  `${data[index].isBookmarked}`
+                )}
+              ></div>
               <div className="movies__info-container info-container">
                 <div className="info-container--top">
                   <h4 className="info-container__text">{video.year}</h4>
