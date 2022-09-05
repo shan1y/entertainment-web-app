@@ -13,6 +13,14 @@ let dataRow: {
   year: number;
 };
 
+interface HomeSectionsProps {
+  query: string;
+}
+
+const homeProperties: HomeSectionsProps = {
+  query: "/recommended",
+};
+
 function HomeSections() {
   const [data, setData] = useState(null);
   const [trendingCarousel, setTrendingCarousel] = useState<string[]>([]);
@@ -34,7 +42,7 @@ function HomeSections() {
   }, []);
 
   if (!data && trendingCarousel.length === 0) {
-    return <p>.....loading</p>;
+    return <p></p>;
   }
 
   return (
@@ -50,7 +58,7 @@ function HomeSections() {
                     <div className="tile__media">
                       <img
                         className="tile__img"
-                        src={"http://localhost:8080/movies".concat(`${video}`)}
+                        src={"http://localhost:8080/".concat(`${video}`)}
                         alt=""
                       />
                     </div>
@@ -66,7 +74,7 @@ function HomeSections() {
       </section>
       <section className="home">
         <h2 className="home__title">Recommended for you</h2>
-        <Grid />
+        <Grid {...homeProperties} />
       </section>
     </>
   );

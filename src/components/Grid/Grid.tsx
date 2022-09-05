@@ -1,5 +1,4 @@
 import "./Grid.scss";
-import image from "../../assets/thumbnails/asia-in-24-days/regular/large.jpg";
 import icon from "../../assets/icons/icon-category-movie.svg";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -14,13 +13,14 @@ let dataRow: {
   year: number;
 };
 
-function Grid() {
+function Grid(props: any) {
   const [data, setData] = useState<typeof dataRow[]>([]);
   const [grid, setGrid] = useState<string[]>([]);
+  const { query } = props;
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/recommended")
+      .get("http://localhost:8080".concat(query))
       .then((response) => {
         setData(response.data);
         return response.data;
@@ -36,7 +36,7 @@ function Grid() {
   }, []);
 
   if (data.length === 0 && grid.length === 0) {
-    return <p>.....loading</p>;
+    return <p></p>;
   } else {
     return (
       <div className="movies">
@@ -45,7 +45,7 @@ function Grid() {
             <div key={index} className="movies__tile">
               <img
                 className="movies__image"
-                src={"http://localhost:8080/movies".concat(`${grid[index]}`)}
+                src={"http://localhost:8080/".concat(`${grid[index]}`)}
               ></img>
               <div className="movies__info-container info-container">
                 <div className="info-container--top">
