@@ -2,6 +2,7 @@ import "./Grid.scss";
 import icon from "../../assets/icons/icon-category-movie.svg";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import play from "../../assets/icons/icon-play.svg";
 
 let dataRow: {
   category: string;
@@ -43,10 +44,18 @@ function Grid(props: any) {
         {data.map((video, index) => {
           return (
             <div key={index} className="movies__tile">
-              <img
-                className="movies__image"
-                src={"http://localhost:8080/".concat(`${grid[index]}`)}
-              ></img>
+              <div className="movies__image-container">
+                <img
+                  className="movies__image"
+                  src={"http://localhost:8080/".concat(`${grid[index]}`)}
+                ></img>
+                <div className="movies__tile-overlay overlay">
+                  <div className="overlay__container">
+                    <img className="overlay__icon" src={play} alt="play icon" />
+                    <p className="overlay__text">Play</p>
+                  </div>
+                </div>
+              </div>
               <div className="movies__bookmarked-circle"></div>
               <div
                 className={"movies__bookmarked--".concat(
@@ -63,7 +72,7 @@ function Grid(props: any) {
                   <h4 className="info-container__text">{video.rating}</h4>
                 </div>
                 <div className="info-container--bottom">
-                  <h3>The Great Lands</h3>
+                  <h3>{video.title}</h3>
                 </div>
               </div>
             </div>

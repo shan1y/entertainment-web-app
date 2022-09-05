@@ -89,12 +89,11 @@ function HomeSections() {
                           </h4>
                         </div>
                         <div className="info-container--bottom">
-                          <h3>The Great Lands</h3>
+                          <h3 className="info-container__trending-title">
+                            {data[index].title}
+                          </h3>
                         </div>
                       </div>
-                    </div>
-                    <div className="tile__details">
-                      <div className="tile__title">{"title"}</div>
                     </div>
                   </div>
                 );

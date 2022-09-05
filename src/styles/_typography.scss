@@ -16,10 +16,19 @@ h2 {
 
 h4 {
   font-weight: 300;
-  font-size: 11px;
+  font-size: 0.6875rem;
+  @include tablet {
+    font-size: 0.8125rem;
+  }
+  @include desktop {
+    font-size: 0.9375rem;
+  }
 }
 
 h3 {
   font-weight: 500;
   font-size: 14px;
+  @include tablet {
+    font-size: 18px;
+  }
 }

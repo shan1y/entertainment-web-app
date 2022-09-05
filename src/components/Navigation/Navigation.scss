@@ -1,4 +1,5 @@
 @use "../../styles/colors" as *;
+@use "../../styles/mixins" as *;
 
 .nav {
   display: flex;
@@ -6,6 +7,13 @@
   align-items: center;
   background-color: $nav-background;
   padding: 1rem;
+  @include desktop {
+    height: 90vh;
+    border-radius: 2rem;
+    margin: 1rem;
+    padding: 3rem 1rem;
+    flex-direction: column;
+  }
 
   &__logo {
     height: 1.25rem;
@@ -16,6 +24,10 @@
     display: flex;
     justify-content: space-evenly;
     width: 50%;
+    @include desktop {
+      flex-direction: column;
+      height: 40%;
+    }
   }
 
   &__icon {

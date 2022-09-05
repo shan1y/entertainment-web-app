@@ -1,1 +1,8 @@
 @use "./styles/resets" as *;
+@use "./styles/mixins" as *;
+
+.App {
+  @include desktop {
+    display: flex;
+  }
+}
