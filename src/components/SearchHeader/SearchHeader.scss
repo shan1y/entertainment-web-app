@@ -15,11 +15,40 @@
   }
 
   &__field {
+    align-items: center;
     background-repeat: no-repeat;
     width: 100%;
-    height: 2rem;
     border: none;
     background-color: $home-background;
-    font-family: $font-stack;
+    background-image: url("../../assets/icons/icon-search.svg");
+    background-position: 3%;
+    text-indent: 3.125rem;
+    color: white;
+    height: 2rem;
+    border-radius: 1.5625rem;
+    margin-right: $mobile-left-margin;
+    @include tablet {
+      height: 3rem;
+      text-indent: 5rem;
+      font-size: 1.125rem;
+    }
+    @include desktop {
+      height: 4rem;
+      text-indent: 6.25rem;
+      font-size: 1.25rem;
+    }
+  }
+}
+
+.search__field::placeholder {
+  font-family: $font-stack;
+  font-weight: 300;
+  font-size: 1rem;
+  @include tablet {
+    font-size: 1.125rem;
+    height: 2rem;
+  }
+  @include desktop {
+    font-size: 1.25rem;
   }
 }

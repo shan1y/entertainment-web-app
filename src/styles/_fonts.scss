@@ -1,4 +1,4 @@
-$font-stack: "Outfit", sans-serif;
+$font-stack: "Outfit";
 
 @font-face {
   font-family: $font-stack;
@@ -11,6 +11,6 @@ $font-stack: "Outfit", sans-serif;
   font-family: $font-stack;
   src: url("../assets/fonts/Outfit-Medium.woff") format("woff"),
     url("../assets/fonts/Outfit-Medium.woff2") format("woff2");
-  font-weight: 400;
+  font-weight: 500;
   font-style: regular;
 }

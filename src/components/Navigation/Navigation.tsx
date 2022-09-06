@@ -6,12 +6,14 @@ import movies from "../../assets/icons/icon-nav-movies.svg";
 import tv from "../../assets/icons/icon-nav-tv-series.svg";
 import bookmark from "../../assets/icons/icon-nav-bookmark.svg";
 import avatar from "../../assets/icons/image-avatar.png";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 
 function Navigation() {
   return (
     <div className="nav">
-      <img className="nav__logo" alt="site logo" src={logo}></img>
+      <Link to="/">
+        <img className="nav__logo" alt="site logo" src={logo}></img>
+      </Link>
       <div className="nav__icon-container">
         <NavLink to="/">
           <img className="nav__icon" src={home} alt="home icon"></img>
