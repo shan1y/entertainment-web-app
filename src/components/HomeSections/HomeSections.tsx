@@ -30,9 +30,15 @@ function HomeSections(props: any) {
 
   const handleClick = (isBookmarked: string, id: number) => {
     axios
-      .patch(`http://localhost:8080/bookmark/${id}/${isBookmarked}`)
+      .patch(
+        `http://https://entertainment-web-app-server.herokuapp.com/bookmark/${id}/${isBookmarked}`
+      )
       .then((response) => {
-        return axios.get("http://localhost:8080".concat("/trending"));
+        return axios.get(
+          "https://entertainment-web-app-server.herokuapp.com".concat(
+            "/trending"
+          )
+        );
       })
       .then((response) => {
         setData(response.data);
@@ -50,7 +56,7 @@ function HomeSections(props: any) {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080/trending")
+      .get("https://entertainment-web-app-server.herokuapp.com/trending")
       .then((response) => {
         setData(response.data);
         return response.data;
@@ -82,7 +88,9 @@ function HomeSections(props: any) {
                     <div className="tile__media tile__media--trending">
                       <img
                         className="tile__img"
-                        src={"http://localhost:8080/".concat(`${video}`)}
+                        src={"https://entertainment-web-app-server.herokuapp.com".concat(
+                          `${video}`
+                        )}
                         alt=""
                       />
                       <div className="movies__bookmarked-circle"></div>

@@ -22,9 +22,13 @@ function Grid(props: any) {
 
   const handleClick = (isBookmarked: string, id: number) => {
     axios
-      .patch(`http://localhost:8080/bookmark/${id}/${isBookmarked}`)
+      .patch(
+        `https://entertainment-web-app-server.herokuapp.com/bookmark/${id}/${isBookmarked}`
+      )
       .then((response) => {
-        return axios.get("http://localhost:8080".concat(query));
+        return axios.get(
+          "https://entertainment-web-app-server.herokuapp.com".concat(query)
+        );
       })
       .then((response) => {
         return response.data;
@@ -42,7 +46,7 @@ function Grid(props: any) {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8080".concat(query))
+      .get("https://entertainment-web-app-server.herokuapp.com".concat(query))
       .then((response) => {
         return response.data;
       })
@@ -65,11 +69,11 @@ function Grid(props: any) {
         {data
           .filter((video) => {
             if (searchTerm === "") {
-              return video;
+              return true;
             } else if (
               video.title.toLowerCase().includes(searchTerm.toLowerCase())
             ) {
-              return video;
+              return true;
             }
           })
           .map((video, index) => {
@@ -79,7 +83,9 @@ function Grid(props: any) {
                   <img
                     alt={`thumbnail of video:${video.title}`}
                     className="movies__image"
-                    src={"http://localhost:8080/".concat(`${video.thumbnail}`)}
+                    src={"https://entertainment-web-app-server.herokuapp.com".concat(
+                      `${video.thumbnail}`
+                    )}
                   ></img>
                   <div className="movies__tile-overlay overlay">
                     <div className="overlay__container">
