@@ -1,13 +1,15 @@
 import React from "react";
 import Grid from "../components/Grid/Grid";
 
-function Movies() {
+function Movies(props: any) {
   interface MovieProps {
     query: string;
+    props: any;
   }
 
   const movieProperties: MovieProps = {
     query: "/movie",
+    props: props,
   };
   return (
     <>

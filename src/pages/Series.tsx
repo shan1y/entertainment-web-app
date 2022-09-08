@@ -1,13 +1,15 @@
 import React from "react";
 import Grid from "../components/Grid/Grid";
 
-function Series() {
+function Series(props: any) {
   interface SeriesProps {
     query: string;
+    props: any;
   }
 
   const seriesProperties: SeriesProps = {
     query: "/series",
+    props: props,
   };
   return (
     <>

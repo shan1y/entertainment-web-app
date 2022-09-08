@@ -11,19 +11,43 @@ let dataRow: {
   thumbnail: string;
   title: string;
   year: number;
+  id: number;
 };
 
-interface HomeSectionsProps {
-  query: string;
-}
-
-const homeProperties: HomeSectionsProps = {
-  query: "/recommended",
-};
-
-function HomeSections() {
+function HomeSections(props: any) {
   const [data, setData] = useState<typeof dataRow[]>([]);
   const [trendingCarousel, setTrendingCarousel] = useState<string[]>([]);
+
+  interface HomeSectionsProps {
+    query: string;
+    props: any;
+  }
+
+  const homeProperties: HomeSectionsProps = {
+    query: "/recommended",
+    props: props,
+  };
+
+  const handleClick = (isBookmarked: string, id: number) => {
+    axios
+      .patch(`http://localhost:8080/bookmark/${id}/${isBookmarked}`)
+      .then((response) => {
+        return axios.get("http://localhost:8080".concat("/trending"));
+      })
+      .then((response) => {
+        setData(response.data);
+        return response.data;
+      })
+      .then((videoData) => {
+        let trendingVids: string[] = [];
+        videoData.forEach((row: typeof dataRow) => {
+          let parsed = JSON.parse(row.thumbnail);
+          trendingVids.push(parsed.regular.large.substring(19));
+        });
+        setTrendingCarousel(trendingVids);
+      });
+  };
+
   useEffect(() => {
     axios
       .get("http://localhost:8080/trending")
@@ -44,7 +68,6 @@ function HomeSections() {
   if (data.length === 0 && trendingCarousel.length === 0) {
     return <></>;
   }
-  console.log(data[0]);
 
   return (
     <>
@@ -64,6 +87,9 @@ function HomeSections() {
                       />
                       <div className="movies__bookmarked-circle"></div>
                       <div
+                        onClick={() => {
+                          handleClick(data[index].isBookmarked, data[index].id);
+                        }}
                         className={"movies__bookmarked--".concat(
                           `${data[index].isBookmarked}`
                         )}

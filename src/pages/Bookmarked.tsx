@@ -1,13 +1,15 @@
 import React from "react";
 import Grid from "../components/Grid/Grid";
 
-function Bookmarked() {
+function Bookmarked(props: any) {
   interface bookmarkedProps {
     query: string;
+    props: any;
   }
 
   const bookmarkedProperties: bookmarkedProps = {
     query: "/bookmarked",
+    props: props,
   };
 
   return (
