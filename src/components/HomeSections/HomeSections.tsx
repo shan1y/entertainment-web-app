@@ -31,7 +31,7 @@ function HomeSections(props: any) {
   const handleClick = (isBookmarked: string, id: number) => {
     axios
       .patch(
-        `http://entertainment-web-app-server.herokuapp.com/bookmark/${id}/${isBookmarked}`
+        `https://entertainment-web-app-server.herokuapp.com/bookmark/${id}/${isBookmarked}`
       )
       .then((response) => {
         return axios.get(
