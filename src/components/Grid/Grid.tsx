@@ -44,6 +44,7 @@ function Grid(props: any) {
       });
   };
 
+  //
   useEffect(() => {
     axios
       .get("https://entertainment-web-app-server.herokuapp.com".concat(query))
