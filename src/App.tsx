@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import "./App.scss";
 import Auth from "./components/Auth/Auth";
 import Bookmarked from "./pages/Bookmarked";
