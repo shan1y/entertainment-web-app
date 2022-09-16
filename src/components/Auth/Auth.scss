@@ -1,0 +1,31 @@
+@use "../../styles/colors" as *;
+@use "../../styles/mixins" as *;
+
+.auth {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  &__card {
+    background-color: $nav-background;
+    padding: 1rem 3rem;
+  }
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__input {
+    background-color: $nav-background;
+    padding: 1rem;
+    border: none;
+    border-bottom: 1px solid grey;
+  }
+
+  &__submit {
+    background-color: $logo;
+    border: none;
+    color: white;
+  }
+}
