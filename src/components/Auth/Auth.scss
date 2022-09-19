@@ -11,12 +11,12 @@
     background-color: $nav-background;
     min-width: 15rem;
     max-width: 30rem;
-    width: 70%;
+    width: 90%;
     padding: 1rem;
-    border-radius: 10px;
+    border-radius: 12px;
     @include tablet {
       padding: 3rem;
-      width: 50%;
+      width: 55%;
     }
   }
 

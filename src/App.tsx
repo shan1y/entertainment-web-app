@@ -124,29 +124,31 @@ function App() {
     };
     const email = target.email.value;
     const password = target.password.value;
-    if (email && password) {
-      axios
-        .post(loginUrl, {
-          email: email,
-          password: password,
-        })
-        .then((response) => {
-          localStorage.authToken = response.data.token;
-          localStorage.username = email;
-          setPasswordErrorOne("");
-          setIsLoggedIn(true);
-          navigateHome();
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }
 
     if (!email) {
       setEmailError("Input cannot be blank");
     } else {
       if (!validateEmail(email)) {
         setEmailError("Please enter a valid email format");
+      } else {
+        if (email && password) {
+          axios
+            .post(loginUrl, {
+              email: email,
+              password: password,
+            })
+            .then((response) => {
+              localStorage.authToken = response.data.token;
+              localStorage.username = email;
+              setPasswordErrorOne("");
+              setIsLoggedIn(true);
+              navigateHome();
+            })
+            .catch((error) => {
+              setEmailError(error.response.data.error);
+              setPasswordErrorOne(error.response.data.error);
+            });
+        }
       }
     }
     if (!password) {
