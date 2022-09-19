@@ -1,5 +1,6 @@
 @use "../../styles/colors" as *;
 @use "../../styles/mixins" as *;
+@use "../../styles/fonts" as *;
 
 .auth {
   display: flex;
@@ -8,7 +9,23 @@
   height: 100vh;
   &__card {
     background-color: $nav-background;
-    padding: 1rem 3rem;
+    min-width: 15rem;
+    max-width: 30rem;
+    width: 70%;
+    padding: 1rem;
+    border-radius: 10px;
+    @include tablet {
+      padding: 3rem;
+      width: 50%;
+    }
+  }
+
+  &__section {
+    width: 100%;
+  }
+
+  &__title {
+    padding: 1rem;
   }
 
   &__form {
@@ -19,13 +36,60 @@
   &__input {
     background-color: $nav-background;
     padding: 1rem;
+    font-family: $font-stack;
+    color: white;
     border: none;
-    border-bottom: 1px solid grey;
+    border-bottom: 1px solid $nav-icon;
+    margin-bottom: 1rem;
+    caret-color: $logo;
+    width: 100%;
+    &:focus {
+      outline: none;
+    }
+    &-group {
+      display: flex;
+    }
+  }
+
+  &__error {
+    padding: 1rem;
+    padding: 1rem;
+    font-size: 10px;
+    width: 100%;
+    text-align: right;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid $nav-icon;
+    color: $logo;
   }
 
   &__submit {
+    align-self: center;
     background-color: $logo;
     border: none;
     color: white;
+    padding: 1rem;
+    border-radius: 5px;
+    margin: 1rem;
+    min-width: 10rem;
+    cursor: pointer;
+    &:hover {
+      background-color: white;
+      color: $nav-background;
+    }
+    @include tablet {
+      min-width: 20rem;
+    }
+  }
+
+  &__redirect {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__link {
+    color: $logo;
+    text-decoration: none;
+    padding: 0 1rem;
   }
 }

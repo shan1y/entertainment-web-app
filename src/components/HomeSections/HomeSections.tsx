@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./HomeSections.scss";
 import Grid from "../Grid/Grid";
 import axios from "axios";
+import { baseUrl } from "../../utils/api-urls";
 
 let dataRow: {
   category: string;
@@ -31,15 +32,9 @@ function HomeSections(props: any) {
   const handleClick = (isBookmarked: string, id: number) => {
     console.log("clicked");
     axios
-      .patch(
-        `https://entertainment-web-app-server.herokuapp.com/bookmark/${id}/${isBookmarked}`
-      )
-      .then((response) => {
-        return axios.get(
-          "https://entertainment-web-app-server.herokuapp.com".concat(
-            "/trending"
-          )
-        );
+      .patch(`${baseUrl}/bookmark/${id}/${isBookmarked}`)
+      .then(() => {
+        return axios.get(`${baseUrl}`.concat("/trending"));
       })
       .then((response) => {
         setData(response.data);
@@ -57,7 +52,7 @@ function HomeSections(props: any) {
 
   useEffect(() => {
     axios
-      .get("https://entertainment-web-app-server.herokuapp.com/trending")
+      .get(`${baseUrl}/trending`)
       .then((response) => {
         setData(response.data);
         return response.data;
@@ -89,9 +84,7 @@ function HomeSections(props: any) {
                     <div className="tile__media tile__media--trending">
                       <img
                         className="tile__img"
-                        src={"https://entertainment-web-app-server.herokuapp.com".concat(
-                          `${video}`
-                        )}
+                        src={`${baseUrl}`.concat(`${video}`)}
                         alt=""
                       />
                       <div className="movies__bookmarked-circle"></div>

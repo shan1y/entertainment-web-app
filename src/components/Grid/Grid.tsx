@@ -3,7 +3,7 @@ import icon from "../../assets/icons/icon-category-movie.svg";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import play from "../../assets/icons/icon-play.svg";
-
+import { baseUrl } from "../../utils/api-urls";
 let dataRow: {
   id: number;
   category: string;
@@ -22,13 +22,9 @@ function Grid(props: any) {
 
   const handleClick = (isBookmarked: string, id: number) => {
     axios
-      .patch(
-        `https://entertainment-web-app-server.herokuapp.com/bookmark/${id}/${isBookmarked}`
-      )
+      .patch(`${baseUrl}/bookmark/${id}/${isBookmarked}`)
       .then((response) => {
-        return axios.get(
-          "https://entertainment-web-app-server.herokuapp.com".concat(query)
-        );
+        return axios.get(`${baseUrl}`.concat(query));
       })
       .then((response) => {
         return response.data;
@@ -47,7 +43,7 @@ function Grid(props: any) {
   //
   useEffect(() => {
     axios
-      .get("https://entertainment-web-app-server.herokuapp.com".concat(query))
+      .get(`${baseUrl}`.concat(query))
       .then((response) => {
         return response.data;
       })
@@ -84,9 +80,7 @@ function Grid(props: any) {
                   <img
                     alt={`thumbnail of video:${video.title}`}
                     className="movies__image"
-                    src={"https://entertainment-web-app-server.herokuapp.com".concat(
-                      `${video.thumbnail}`
-                    )}
+                    src={`${baseUrl}`.concat(`${video.thumbnail}`)}
                   ></img>
                   <div className="movies__tile-overlay overlay">
                     <div className="overlay__container">

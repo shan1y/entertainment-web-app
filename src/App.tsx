@@ -28,30 +28,88 @@ interface authProps {
   accSubmit: string;
   linkText: string;
   path: string;
+  emailError: string;
+  passwordErrorOne: string;
+  passwordErrorTwo: string;
+  handleNavigate: any;
 }
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
   const [IsLoggedIn, setIsLoggedIn] = useState(!!localStorage.authToken);
+  const [emailError, setEmailError] = useState("");
+  const [passwordErrorOne, setPasswordErrorOne] = useState("");
+  const [passwordErrorTwo, setPasswordErrorTwo] = useState("");
   const navigate = useNavigate();
+
+  const validateEmail = (email: string) => {
+    return String(email)
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
+  };
 
   const handleSignUp = (e: React.SyntheticEvent) => {
     e.preventDefault();
     const target = e.target as typeof e.target & {
       email: { value: string };
       password: { value: string };
+      passwordConfirm: { value: string };
     };
     const email = target.email.value;
     const password = target.password.value;
-    console.log(signUpUrl);
-    axios
-      .post(signUpUrl, {
-        email: email,
-        password: password,
-      })
-      .then((data) => {
-        console.log(data);
-      });
+    const passwordConfirm = target.passwordConfirm.value;
+
+    if (password && passwordConfirm && password === passwordConfirm) {
+      axios
+        .post(signUpUrl, {
+          email: email,
+          password: password,
+          passwordConfirm: passwordConfirm,
+        })
+        .then(() => {
+          navigateLogIn();
+        })
+        .catch((err) => {
+          setEmailError(err.response.data.errors[0].msg);
+        });
+    }
+
+    if (!email) {
+      setEmailError("Input cannot be blank");
+    } else {
+      if (!validateEmail(email)) {
+        setEmailError("Please enter a valid email format");
+      }
+    }
+
+    if (!passwordConfirm) {
+      setPasswordErrorTwo("Input cannot be blank");
+    } else {
+      setPasswordErrorTwo("");
+    }
+
+    if (!password) {
+      setPasswordErrorOne("Input cannot be blank");
+    } else {
+      setPasswordErrorOne("");
+    }
+
+    if (password && passwordConfirm && password !== passwordConfirm) {
+      setPasswordErrorOne("Passwords do not match");
+      setPasswordErrorTwo("Passwords do not match");
+    }
+  };
+
+  const navigateLogIn = () => {
+    navigate("/login");
+  };
+
+  const handleNavigate = (path: string) => {
+    setPasswordErrorOne("");
+    setPasswordErrorTwo("");
+    setEmailError("");
   };
 
   const navigateHome = () => {
@@ -74,8 +132,12 @@ function App() {
       .then((response) => {
         localStorage.authToken = response.data.token;
         localStorage.username = email;
+        setPasswordErrorOne("");
         setIsLoggedIn(true);
         navigateHome();
+      })
+      .catch((error) => {
+        console.log(error);
       });
   };
 
@@ -97,6 +159,10 @@ function App() {
     accSubmit: "Create account",
     linkText: "Log In",
     path: "/login",
+    emailError: emailError,
+    passwordErrorOne: passwordErrorOne,
+    passwordErrorTwo: passwordErrorTwo,
+    handleNavigate: handleNavigate,
   };
 
   const logInProps: authProps = {
@@ -107,6 +173,10 @@ function App() {
     accSubmit: "Log in",
     linkText: "Sign Up",
     path: "/signup",
+    emailError: "",
+    passwordErrorOne: passwordErrorOne,
+    passwordErrorTwo: passwordErrorTwo,
+    handleNavigate: handleNavigate,
   };
 
   return (
