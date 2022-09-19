@@ -38,6 +38,7 @@ function Auth(props: any) {
             </div>
             <div className="auth__input-group">
               <input
+                type="password"
                 autoComplete="off"
                 name="password"
                 placeholder="Password"
@@ -50,6 +51,7 @@ function Auth(props: any) {
             {extraInput ? (
               <div className="auth__input-group">
                 <input
+                  type="password"
                   autoComplete="off"
                   placeholder="Confirm Password"
                   name="passwordConfirm"

@@ -60,6 +60,15 @@ function App() {
     const email = target.email.value;
     const password = target.password.value;
     const passwordConfirm = target.passwordConfirm.value;
+    if (email) {
+      setEmailError("");
+    }
+    if (password) {
+      setPasswordErrorOne("");
+    }
+    if (passwordConfirm) {
+      setPasswordErrorTwo("");
+    }
 
     if (password && passwordConfirm && password === passwordConfirm) {
       axios
@@ -68,8 +77,12 @@ function App() {
           password: password,
           passwordConfirm: passwordConfirm,
         })
-        .then(() => {
-          navigateLogIn();
+        .then((response) => {
+          if (response.data.errors === "Account already exists") {
+            setEmailError(response.data.errors);
+          } else {
+            navigateLogIn();
+          }
         })
         .catch((err) => {
           setEmailError(err.response.data.errors[0].msg);
