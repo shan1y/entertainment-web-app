@@ -124,21 +124,36 @@ function App() {
     };
     const email = target.email.value;
     const password = target.password.value;
-    axios
-      .post(loginUrl, {
-        email: email,
-        password: password,
-      })
-      .then((response) => {
-        localStorage.authToken = response.data.token;
-        localStorage.username = email;
-        setPasswordErrorOne("");
-        setIsLoggedIn(true);
-        navigateHome();
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    if (email && password) {
+      axios
+        .post(loginUrl, {
+          email: email,
+          password: password,
+        })
+        .then((response) => {
+          localStorage.authToken = response.data.token;
+          localStorage.username = email;
+          setPasswordErrorOne("");
+          setIsLoggedIn(true);
+          navigateHome();
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+
+    if (!email) {
+      setEmailError("Input cannot be blank");
+    } else {
+      if (!validateEmail(email)) {
+        setEmailError("Please enter a valid email format");
+      }
+    }
+    if (!password) {
+      setPasswordErrorOne("Input cannot be blank");
+    } else {
+      setPasswordErrorOne("");
+    }
   };
 
   const appProperties: appProps = {
@@ -173,7 +188,7 @@ function App() {
     accSubmit: "Log in",
     linkText: "Sign Up",
     path: "/signup",
-    emailError: "",
+    emailError: emailError,
     passwordErrorOne: passwordErrorOne,
     passwordErrorTwo: passwordErrorTwo,
     handleNavigate: handleNavigate,
