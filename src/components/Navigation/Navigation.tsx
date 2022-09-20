@@ -44,6 +44,7 @@ function Navigation() {
         <img src={avatar} alt="avatar" className="nav__avatar-img" />
       </div>
       <p
+        className="nav__logout"
         onClick={() => {
           handleLogout();
         }}

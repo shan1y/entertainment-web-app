@@ -61,6 +61,11 @@
       }
     }
   }
+
+  &__logout {
+    color: $logo;
+    cursor: pointer;
+  }
 }
 
 .active {
