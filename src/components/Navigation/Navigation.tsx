@@ -6,9 +6,21 @@ import movies from "../../assets/icons/icon-nav-movies.svg";
 import tv from "../../assets/icons/icon-nav-tv-series.svg";
 import bookmark from "../../assets/icons/icon-nav-bookmark.svg";
 import avatar from "../../assets/icons/image-avatar.png";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 
 function Navigation() {
+  const navigate = useNavigate();
+
+  const navigateLogIn = () => {
+    navigate("/login");
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("authToken");
+    localStorage.removeItem("username");
+    navigateLogIn();
+  };
+
   return (
     <div className="nav">
       <Link to="/">
@@ -31,6 +43,13 @@ function Navigation() {
       <div className="nav__avatar">
         <img src={avatar} alt="avatar" className="nav__avatar-img" />
       </div>
+      <p
+        onClick={() => {
+          handleLogout();
+        }}
+      >
+        Logout
+      </p>
     </div>
   );
 }
