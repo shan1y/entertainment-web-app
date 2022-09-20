@@ -46,28 +46,27 @@ Once registering for a clinic or public meetup, you can head to your "my schedul
 <details>
   <summary>Client</summary>
   <ul>
-    <li><a href="https://www.typescriptlang.org/">Sass</a></li>
-    <li><a href="https://nextjs.org/">React Icons</a></li>
+    <li><a href="https://nextjs.org/">TypeScript</a></li>
     <li><a href="https://reactjs.org/">React.js</a></li>
-    <li><a href="https://tailwindcss.com/">V4 UUId</a></li>
+    <li><a href="https://tailwindcss.com/">Sass</a></li>
   </ul>
 </details>
 
 <details>
 <summary>Server</summary>
   <ul>
-    <li><a href="https://firebase.google.com/">Firebase Storage</a></li>
-    <li><a href="https://firebase.google.com/">Firebase Database</a></li>
-    <li><a href="https://firebase.google.com/">Firebase Authentication</a></li>
+    <li><a href="https://firebase.google.com/">Node.js</a></li>
+    <li><a href="https://firebase.google.com/">Express Validator</a></li>
+    <li><a href="https://firebase.google.com/">JWT</a></li>
   </ul>
 </details>
 
 <details>
 <summary>Database</summary>
   <ul>
-    <li><a href="https://firebase.google.com/">Firebase Storage</a></li>
-    <li><a href="https://firebase.google.com/">Firebase Database</a></li>
-    <li><a href="https://firebase.google.com/">Firebase Authentication</a></li>
+    <li><a href="https://firebase.google.com/">MySQL</a></li>
+    <li><a href="https://firebase.google.com/">MySQL Workbench</a></li>
+    <li><a href="https://firebase.google.com/">ClearDB Heroku Addon</a></li>
   </ul>
 </details>
 
