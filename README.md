@@ -32,11 +32,11 @@ When you first arrive to the site, you are greated with a log-in page where you 
 
 The screenshot below shows the Clinics Page, where you can see the list of local coaches offering clinics, and you can register for the ones of your choosing.
   
-<img src="//src/assets/images/homepage.png"  width="80%">
+<img src="/src/assets/images/homepage.png"  width="80%">
   
 Once registering for a clinic or public meetup, you can head to your "my schedule" page where you can see your registrations, and you can unregister for those events should you change your mind.
   
-<img src="//src/assets/images/mobile.png"  width="30%">
+<img src="/src/assets/images/mobile.png"  width="30%">
 
   
 
