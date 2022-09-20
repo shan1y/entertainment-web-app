@@ -11,7 +11,7 @@ Maybe you can mention me or this repo in the acknowledgements too
 <div align="left">
 
   <!-- <img src="assets/logo.png" alt="logo" width="200" height="auto" /> -->
-  <h1>SkyBall</h1>
+  <h1>BestFlix</h1>
   
   <p>
    This is a solution to the [Entertainment web app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/entertainment-web-app-J-UhgAW1X). Frontend Mentor challenges help you improve your coding skills by building realistic project.
@@ -21,22 +21,23 @@ Maybe you can mention me or this repo in the acknowledgements too
 
 - Solution URL: [Solution](https:/bestflix-sy.netlify.app)
 - Live Site URL: [Live Site](https:/bestflix-sy.netlify.app)
-  
+- Backend Repo: [Backend Repo](https://github.com/shan1y/bestflix-server)
 
 <!-- Screenshots -->
 ### :camera: Screenshots
 
 When you first arrive to the site, you are greated with a log-in page where you can navigate to a sign up page if you don't already have an account. The website will track your clinic and meetup registrations to your username.
 
-![App Screenshot](/src/assets/images/sign-up.png)
+<img src="/src/assets/images/sign-up.png"  width="80%">
 
 The screenshot below shows the Clinics Page, where you can see the list of local coaches offering clinics, and you can register for the ones of your choosing.
   
-![App Screenshot](/src/assets/images/homepage.png)
+<img src="//src/assets/images/homepage.png"  width="80%">
   
 Once registering for a clinic or public meetup, you can head to your "my schedule" page where you can see your registrations, and you can unregister for those events should you change your mind.
   
- ![App Screenshot](/src/assets/images/mobile.png)
+<img src="//src/assets/images/mobile.png"  width="30%">
+
   
 
 <!-- TechStack -->
