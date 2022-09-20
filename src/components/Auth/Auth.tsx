@@ -1,6 +1,8 @@
+import e from "express";
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Auth.scss";
+import icon from "../../assets/icons/logo.svg";
 
 function Auth(props: any) {
   const {
@@ -15,9 +17,20 @@ function Auth(props: any) {
     passwordErrorOne,
     passwordErrorTwo,
     handleNavigate,
+    loginPassValue,
+    setLoginPassValue,
+    reset,
   } = props;
+
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    event.preventDefault();
+    console.log(event.target.value);
+    setLoginPassValue(event.target.value);
+  };
+
   return (
     <section className="auth__section">
+      <img className="auth__icon" src={icon} alt="icon"></img>
       <div className="auth">
         <div className="auth__card">
           <form
@@ -36,6 +49,7 @@ function Auth(props: any) {
               ></input>
               {emailError ? <p className="auth__error">{emailError}</p> : null}
             </div>
+
             <div className="auth__input-group">
               <input
                 type="password"
@@ -43,11 +57,16 @@ function Auth(props: any) {
                 name="password"
                 placeholder="Password"
                 className="auth__input"
+                value={loginPassValue}
+                onChange={(e) => {
+                  handleInputChange(e);
+                }}
               ></input>
               {passwordErrorOne ? (
                 <p className="auth__error">{passwordErrorOne}</p>
               ) : null}
             </div>
+
             {extraInput ? (
               <div className="auth__input-group">
                 <input

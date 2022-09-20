@@ -32,6 +32,8 @@ interface authProps {
   passwordErrorOne: string;
   passwordErrorTwo: string;
   handleNavigate: any;
+  loginPassValue: string;
+  setLoginPassValue: any;
 }
 
 function App() {
@@ -40,6 +42,7 @@ function App() {
   const [emailError, setEmailError] = useState("");
   const [passwordErrorOne, setPasswordErrorOne] = useState("");
   const [passwordErrorTwo, setPasswordErrorTwo] = useState("");
+  const [loginPassValue, setLoginPassValue] = useState("");
   const navigate = useNavigate();
 
   const validateEmail = (email: string) => {
@@ -81,6 +84,7 @@ function App() {
           if (response.data.errors === "Account already exists") {
             setEmailError(response.data.errors);
           } else {
+            setLoginPassValue("");
             navigateLogIn();
           }
         })
@@ -193,6 +197,8 @@ function App() {
     passwordErrorOne: passwordErrorOne,
     passwordErrorTwo: passwordErrorTwo,
     handleNavigate: handleNavigate,
+    setLoginPassValue: setLoginPassValue,
+    loginPassValue: loginPassValue,
   };
 
   const logInProps: authProps = {
@@ -206,7 +212,9 @@ function App() {
     emailError: emailError,
     passwordErrorOne: passwordErrorOne,
     passwordErrorTwo: passwordErrorTwo,
+    setLoginPassValue: setLoginPassValue,
     handleNavigate: handleNavigate,
+    loginPassValue: loginPassValue,
   };
 
   return (

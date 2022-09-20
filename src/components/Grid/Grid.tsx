@@ -23,7 +23,7 @@ function Grid(props: any) {
   const handleClick = (isBookmarked: string, id: number) => {
     axios
       .patch(`${baseUrl}/bookmark/${id}/${isBookmarked}`)
-      .then((response) => {
+      .then(() => {
         return axios.get(`${baseUrl}`.concat(query));
       })
       .then((response) => {
@@ -40,7 +40,6 @@ function Grid(props: any) {
       });
   };
 
-  //
   useEffect(() => {
     axios
       .get(`${baseUrl}`.concat(query))
@@ -59,7 +58,7 @@ function Grid(props: any) {
   }, [query]);
 
   if (data.length === 0) {
-    return <p></p>;
+    return <></>;
   } else {
     return (
       <div className="movies">
