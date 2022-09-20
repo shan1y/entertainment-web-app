@@ -56,7 +56,7 @@ function Grid(props: any) {
         });
         setData(vidGrid);
       });
-  }, []);
+  }, [query]);
 
   if (data.length === 0) {
     return <p></p>;
