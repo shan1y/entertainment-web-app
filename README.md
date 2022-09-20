@@ -19,8 +19,8 @@ Maybe you can mention me or this repo in the acknowledgements too
   
   ### Links
 
-- Solution URL: [Add solution URL here](https:/bestflix-sy.netlify.app)
-- Live Site URL: [Add live site URL here](https:/bestflix-sy.netlify.app)
+- Solution URL: [Solution](https:/bestflix-sy.netlify.app)
+- Live Site URL: [Live Site](https:/bestflix-sy.netlify.app)
   
 
 <!-- Screenshots -->
@@ -123,7 +123,7 @@ This project uses npm as package manager
 Clone the project
 
 ```bash
-  git clone https://github.com/shan1y/skyball-capstone.git
+  git clone https://github.com/shan1y/entertainment-web-app.git
 ```
 
 Go to the project directory
@@ -160,7 +160,7 @@ To deploy this project run
 ## :handshake: Contact
 
 - Website - [Shannon Yazdani](https://shannonshaida.com)
-- Frontend Mentor - [@yourusername](https://www.frontendmentor.io/profile/yourusername)
+- Frontend Mentor - [@shan1y](https://www.frontendmentor.io/profile/shan1y)
 - Twitter - [@shaida.eth](https://www.twitter.com/yourusername)
 
 <!-- Acknowledgments -->
