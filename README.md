@@ -87,22 +87,17 @@ Once registering for a clinic or public meetup, you can head to your "my schedul
 <!-- Env Variables -->
 ### :key: Environment Variables
 
-To run this project locally (not from the deployed site), you will need to add the following environment variables to your .env file and create two tables in your database.
+To run this project locally (not from the deployed site), you will need to add the following environment variables to your .env file and create two tables in your database according to code in the server [Backend Repo](https://github.com/shan1y/bestflix-server)
 
-`REACT_APP_FIREBASE_API_KEY`
+`DB_HOST`
 
-`REACT_APP_FIREBASE_AUTH_DOMAIN`
+`DB_USERNAME`
 
-`REACT_APP_FIREBASE_PROJECT_ID`
+`DB_PASSWORD`
 
-`REACT_APP_FIREBASE_STORAGE_BUCKET`
+`DB_DATABASE`
 
-`REACT_APP_FIREBASE_MESSAGING_SENDER_ID`
-  
-`REACT_APP_FIREBASE_APP_ID=1:95244008147`
- 
-`REACT_APP_FIREBASE_MEASUREMENT_ID`
-  
+`JWT_SECRET_KEY`
 
 <!-- Getting Started -->
 ## 	:toolbox: Getting Started
