@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import { Routes, Route, useNavigate, Navigate } from "react-router-dom";
 import "./App.scss";
 import Auth from "./components/Auth/Auth";
 import Bookmarked from "./pages/Bookmarked";
@@ -223,6 +223,7 @@ function App() {
         <Route element={<Auth {...signUpProps} />} path="/signup" />
         <Route element={<Auth {...logInProps} />} path="/login" />
         <Route element={<Auth />} path="/signup" />
+        <Route path="*" element={<Navigate replace to="/" />} />
         <Route element={<PrivateRoute {...privateProperties} />}>
           <Route path="/" element={<Home {...appProperties} />} />
           <Route path="/movies" element={<Movies {...appProperties} />} />

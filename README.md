@@ -26,15 +26,15 @@ Maybe you can mention me or this repo in the acknowledgements too
 <!-- Screenshots -->
 ### :camera: Screenshots
 
-When you first arrive to the site, you are greated with a log-in page where you can navigate to a sign up page if you don't already have an account. The website will track your clinic and meetup registrations to your username.
+When you first arrive to the site, you are greated with a log-in page where you can navigate to a sign up page if you don't already have an account. 
 
 <img src="/src/assets/images/sign-up.png"  width="80%">
 
-The screenshot below shows the Clinics Page, where you can see the list of local coaches offering clinics, and you can register for the ones of your choosing.
+This is a screnshot of the home page, with a carousel for trending movies and series. Each movie or TV series can be bookmarked.
   
 <img src="/src/assets/images/homepage.png"  width="80%">
   
-Once registering for a clinic or public meetup, you can head to your "my schedule" page where you can see your registrations, and you can unregister for those events should you change your mind.
+This is a screenshot of the mobile view. The website is fully responsive.
   
 <img src="/src/assets/images/mobile.png"  width="30%">
 
