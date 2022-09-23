@@ -19,12 +19,10 @@ function Auth(props: any) {
     handleNavigate,
     loginPassValue,
     setLoginPassValue,
-    reset,
   } = props;
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
-    console.log(event.target.value);
     setLoginPassValue(event.target.value);
   };
 

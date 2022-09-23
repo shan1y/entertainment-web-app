@@ -20,22 +20,6 @@ interface privateProps {
   token: boolean;
 }
 
-interface authProps {
-  title: string;
-  extraInput: boolean;
-  handleSubmit: any;
-  accQuestion: string;
-  accSubmit: string;
-  linkText: string;
-  path: string;
-  emailError: string;
-  passwordErrorOne: string;
-  passwordErrorTwo: string;
-  handleNavigate: any;
-  loginPassValue: string;
-  setLoginPassValue: any;
-}
-
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
   const [IsLoggedIn, setIsLoggedIn] = useState(!!localStorage.authToken);
@@ -142,12 +126,14 @@ function App() {
     const email = target.email.value;
     const password = target.password.value;
 
+    //Input validation for empty form
     if (!email) {
       setEmailError("Input cannot be blank");
     } else {
       if (!validateEmail(email)) {
         setEmailError("Please enter a valid email format");
       } else {
+        //update local storage with email and auth token
         if (email && password) {
           axios
             .post(loginUrl, {
@@ -185,7 +171,7 @@ function App() {
     token: IsLoggedIn,
   };
 
-  const signUpProps: authProps = {
+  const signUpProps = {
     title: "Sign Up",
     extraInput: true,
     handleSubmit: handleSignUp,
@@ -201,7 +187,7 @@ function App() {
     loginPassValue: loginPassValue,
   };
 
-  const logInProps: authProps = {
+  const logInProps = {
     title: "Log In",
     extraInput: false,
     handleSubmit: handleLogIn,
