@@ -26,6 +26,7 @@ function Auth(props: any) {
     setLoginPassValue(event.target.value);
   };
 
+
   return (
     <section className="auth__section">
       <img className="auth__icon" src={icon} alt="icon"></img>
@@ -55,7 +56,7 @@ function Auth(props: any) {
                 name="password"
                 placeholder="Password"
                 className="auth__input"
-                value={loginPassValue}
+                 value={loginPassValue}
                 onChange={(e) => {
                   handleInputChange(e);
                 }}
@@ -96,6 +97,7 @@ function Auth(props: any) {
               </Link>
             </div>
           </form>
+     
         </div>
       </div>
     </section>
