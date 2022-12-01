@@ -103,13 +103,12 @@
     padding: 0 1rem;
   }
 
-  &__guest-button {
-    display: flex;
+  &__guest{
+    font-weight: 300;
     padding-top:1rem;
-    margin-inline:auto;
-    background-color: $nav-background;
-    color:white;
-    border: none;
-    text-decoration: underline;
+    &-title{
+      margin-bottom:0.5rem;
+      text-decoration: underline;
+    }
   }
 }

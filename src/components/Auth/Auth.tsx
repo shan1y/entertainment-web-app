@@ -97,7 +97,11 @@ function Auth(props: any) {
               </Link>
             </div>
           </form>
-     
+          <div className="auth__guest">
+          <p className="auth__guest-title">Guest Login</p>
+          <p>email: guest@test.com</p>
+          <p>password:test99</p>
+          </div>
         </div>
       </div>
     </section>
