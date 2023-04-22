@@ -7,8 +7,12 @@ import tv from "../../assets/icons/icon-nav-tv-series.svg";
 import bookmark from "../../assets/icons/icon-nav-bookmark.svg";
 import avatar from "../../assets/icons/image-avatar.png";
 import { NavLink, Link, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { setLoginPassValue } from "../../stores/loginPassValueSlice";
 
 function Navigation() {
+  const dispatch = useDispatch();
+
   const navigate = useNavigate();
 
   const navigateLogIn = () => {
@@ -18,6 +22,7 @@ function Navigation() {
   const handleLogout = () => {
     localStorage.removeItem("authToken");
     localStorage.removeItem("username");
+    dispatch(setLoginPassValue(''));
     navigateLogIn();
   };
 

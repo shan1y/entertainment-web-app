@@ -208,7 +208,6 @@ function App() {
       <Routes>
         <Route element={<Auth {...signUpProps} />} path="/signup" />
         <Route element={<Auth {...logInProps} />} path="/login" />
-        <Route element={<Auth />} path="/signup" />
         <Route path="*" element={<Navigate replace to="/" />} />
         <Route element={<PrivateRoute {...privateProperties} />}>
           <Route path="/" element={<Home {...appProperties} />} />

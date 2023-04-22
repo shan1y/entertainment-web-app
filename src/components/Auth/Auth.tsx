@@ -1,30 +1,50 @@
-import e from "express";
+
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Auth.scss";
 import icon from "../../assets/icons/logo.svg";
+import { useSelector, useDispatch } from "react-redux";
+import { setLoginPassValue } from "../../stores/loginPassValueSlice";
+import type { RootState } from "../../stores/store";
 
-function Auth(props: any) {
-  const {
-    handleSubmit,
-    title,
-    extraInput,
-    accQuestion,
-    linkText,
-    path,
-    accSubmit,
-    emailError,
-    passwordErrorOne,
-    passwordErrorTwo,
-    handleNavigate,
-    loginPassValue,
-    setLoginPassValue,
-  } = props;
+interface AuthProps {
+  handleSubmit: (e: React.SyntheticEvent) => void;
+  title: string;
+  extraInput?: boolean;
+  accQuestion: string;
+  linkText: string;
+  path: string;
+  accSubmit: string;
+  emailError?: string;
+  passwordErrorOne?: string;
+  passwordErrorTwo?: string;
+  handleNavigate: (path: string) => void;
+  //loginPassValue: string;
+  //setLoginPassValue: (value: string) => void;
+}
 
-  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    event.preventDefault();
-    setLoginPassValue(event.target.value);
+
+const Auth: React.FC<AuthProps> = ({
+  handleSubmit,
+  title,
+  extraInput,
+  accQuestion,
+  linkText,
+  path,
+  accSubmit,
+  emailError,
+  passwordErrorOne,
+  passwordErrorTwo,
+  handleNavigate,
+  // loginPassValue,
+  //setLoginPassValue,
+}) => {
+  const loginPassValue = useSelector((state: RootState) => state.loginPassValue.value);
+  const dispatch = useDispatch();
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    dispatch(setLoginPassValue(e.target.value));
   };
+
 
 
   return (
@@ -88,7 +108,7 @@ function Auth(props: any) {
               <h4>{accQuestion}</h4>
               <Link
                 className="auth__link"
-                onClick={(path) => {
+                onClick={() => {
                   handleNavigate(path);
                 }}
                 to={path}
