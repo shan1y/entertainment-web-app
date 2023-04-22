@@ -19,8 +19,6 @@ interface AuthProps {
   passwordErrorOne?: string;
   passwordErrorTwo?: string;
   handleNavigate: (path: string) => void;
-  //loginPassValue: string;
-  //setLoginPassValue: (value: string) => void;
 }
 
 
@@ -36,8 +34,6 @@ const Auth: React.FC<AuthProps> = ({
   passwordErrorOne,
   passwordErrorTwo,
   handleNavigate,
-  // loginPassValue,
-  //setLoginPassValue,
 }) => {
   const loginPassValue = useSelector((state: RootState) => state.loginPassValue.value);
   const dispatch = useDispatch();
