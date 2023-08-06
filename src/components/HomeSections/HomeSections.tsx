@@ -30,7 +30,6 @@ function HomeSections(props: any) {
   };
 
   const handleClick = (isBookmarked: string, id: number) => {
-    console.log("clicked");
     axios
       .patch(`${baseUrl}/bookmark/${id}/${isBookmarked}`)
       .then(() => {
@@ -38,13 +37,13 @@ function HomeSections(props: any) {
       })
       .then((response) => {
         setData(response.data);
+        console.log(response.data)
         return response.data;
       })
       .then((videoData) => {
         let trendingVids: string[] = [];
         videoData.forEach((row: typeof dataRow) => {
-          let parsed = JSON.parse(row.thumbnail);
-          trendingVids.push(parsed.regular.large.substring(19));
+          trendingVids.push(row.thumbnail.substring(19));
         });
         setTrendingCarousel(trendingVids);
       });
@@ -60,12 +59,13 @@ function HomeSections(props: any) {
       .then((videoData) => {
         let trendingVids: string[] = [];
         videoData.forEach((row: typeof dataRow) => {
-          let parsed = JSON.parse(row.thumbnail);
-          trendingVids.push(parsed.regular.large.substring(19));
+          trendingVids.push(row.thumbnail.substring(19));
         });
         setTrendingCarousel(trendingVids);
       });
   }, []);
+
+  console.log(data)
 
   if (data.length === 0 && trendingCarousel.length === 0) {
     return <></>;

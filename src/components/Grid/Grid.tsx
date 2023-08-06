@@ -32,8 +32,7 @@ function Grid(props: any) {
       .then((videoData) => {
         let vidGrid: typeof dataRow[] = [];
         videoData.forEach((row: typeof dataRow) => {
-          let parsed = JSON.parse(row.thumbnail);
-          row.thumbnail = parsed.regular.large.substring(19);
+          row.thumbnail = row.thumbnail.substring(19);
           vidGrid.push(row);
         });
         setData(vidGrid);
@@ -49,8 +48,7 @@ function Grid(props: any) {
       .then((videoData) => {
         let vidGrid: typeof dataRow[] = [];
         videoData.forEach((row: typeof dataRow) => {
-          let parsed = JSON.parse(row.thumbnail);
-          row.thumbnail = parsed.regular.large.substring(19);
+          row.thumbnail = row.thumbnail.substring(19);
           vidGrid.push(row);
         });
         setData(vidGrid);
